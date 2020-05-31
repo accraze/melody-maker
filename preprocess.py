@@ -6,7 +6,7 @@ import music21 as m21
 import numpy as np
 import tensorflow.keras as keras
 
-KERN_DATASET_PATH = "deutschl/test"
+KERN_DATASET_PATH = "deutschl/erk"
 SAVE_DIR = 'dataset'
 SINGLE_FILE_DATASET = 'file_dataset'
 MAPPING_PATH = 'mapping.json'
@@ -163,7 +163,7 @@ def convert_songs_to_int(songs):
     return int_songs
 
 
-def generating_training_sequences(sequence_length):
+def generate_training_sequences(sequence_length):
     # [11, 12, 13, 14, ...] -> i: [11, 12], t:13; i: [12, 13]
     # load songs and map them to int
     songs = load(SINGLE_FILE_DATASET)
@@ -196,4 +196,4 @@ if __name__ == '__main__':
     songs = create_single_file_dataset(
         SAVE_DIR, SINGLE_FILE_DATASET, SEQUENCE_LENGTH)
     create_mapping(songs, MAPPING_PATH)
-    inputs, targets = generating_training_sequences(SEQUENCE_LENGTH)
+    #inputs, targets = generating_training_sequences(SEQUENCE_LENGTH)
